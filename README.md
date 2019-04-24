@@ -16,9 +16,14 @@ or from https://github.com/niderhoff/nlp-datasets
 6. Document your process and results
 7. Commit your source code, documentation and other supporting files to the git repository in GitHub
 
-<h1>Data</h1>
+## Data
 The data chosen for this project was from "The Examiner - SpamClickBait News Dataset" (https://www.kaggle.com/therohk/examine-the-examiner#examiner-date-tokens.csv) found from https://github.com/niderhoff/nlp-datasets 
 
 Data features headlines from 3 million articles
 
-<h1>Hiddene Markov Model Algorithm:</h1>
+## Hidden Markov Model Algorithm:
+We began by randomly sampling from the dataset as it was too computationally difficult at full size.
+We then implemented a Markov Model based on the transition probabilities of the past two words in the headlines.
+Although a Markov Model has no memory of the previous state, this can still be represented as a traditional markov model with n^2 states where n is the number of unique words.
+
+Extending this to our hidden state, we took the concept that long words are less likely followed by additional long words and created two hidden states, one that prefers short words and one that prefers longer words. The emission probabilities were based off of this hidden state which was not observed making this a Hidden Markov Model.
